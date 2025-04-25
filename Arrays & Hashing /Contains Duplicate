@@ -1,0 +1,13 @@
+class Solution {
+    public boolean hasDuplicate(int[] nums) {
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        for(int x: nums){
+            if(list.contains(x)){
+                return true;
+            }else{
+                list.add(x);
+            }
+        }
+        return false;
+    }
+}
