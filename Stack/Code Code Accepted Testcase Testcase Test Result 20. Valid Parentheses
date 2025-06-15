@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isValid(String s) {
+        HashMap<Character,Character> mp = new HashMap<>();
+        mp.put(')','(');
+        mp.put(']','[');
+         mp.put('}','{');
+        Stack<Character> stack = new Stack<>();
+        for(char c: s.toCharArray()){
+            if(!stack.isEmpty() && mp.containsKey(c)){
+                if(mp.get(c)==stack.peek()) stack.pop();
+                else return false;
+            }else stack.push(c);
+        }
+        return stack.isEmpty();
+    }
+}
